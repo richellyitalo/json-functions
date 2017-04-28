@@ -20,3 +20,17 @@ function jsonToArray(objectJSON)
     }
     return _array;
 }
+
+/**
+ * Uso
+ * 		info = '<span class="label label-warning">Filtrado</span> {0} de {1}';
+ * 		content = formatString(info, [visible2, all2]);
+ * @param  {[type]} s    [description]
+ * @param  {[type]} args [description]
+ * @return {[type]}      [description]
+ */
+function formatString(s, args) {
+	return s.replace(/\{(\d+)\}/g, function(match, number) {
+		return typeof args[number] !== 'undefined' ? args[number] : match;
+	});
+}
